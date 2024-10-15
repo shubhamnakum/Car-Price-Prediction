@@ -22,7 +22,7 @@ def predict():
 
     input_query = pd.DataFrame([[name, company, fuel_type, year, kms_driven]], columns=[
                                'name', 'company', 'fuel_type', 'year', 'kms_driven'])
-    result = model.predict(input_query)[0]
+    result = model.predict(input_query)
 
     return jsonify({"price": result})
 
