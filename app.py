@@ -24,7 +24,7 @@ def predict():
                                'name', 'company', 'fuel_type', 'year', 'kms_driven'])
     result = model.predict(input_query)[0]
 
-    return jsonify({"price :", result})
+    return jsonify({"price": result})
 
 
 if __name__ == '__main__':
