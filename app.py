@@ -22,10 +22,13 @@ def predict():
 
     input_query = pd.DataFrame([[name, company, fuel_type, year, kms_driven]], columns=[
                                'name', 'company', 'fuel_type', 'year', 'kms_driven'])
-    result = model.predict(input_query)
+   result = model.predict(input_query)[0]
+
+# Ensure result is a serializable type
+    if isinstance(result, (np.generic, np.ndarray)):
+        result = result.item()  # Convert numpy types to native Python types
 
     return jsonify({"price": result})
-
 
 if __name__ == '__main__':
     app.run(debug=True)
